@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Фільмотека Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 Фільмотека Pro</h1>
+
+    <div class="top-bar">
+      <button class="theme-toggle" onclick="toggleTheme()">🌓 Змінити тему</button>
+      <button class="auth-button" onclick="toggleModal()">🔐 Увійти / Реєстрація</button>
+    </div>
+
+    <!-- Модальне вікно -->
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleModal()">&times;</span>
+        <div class="tab-buttons">
+          <button onclick="switchTab('login')"><i class="fas fa-sign-in-alt"></i> Вхід</button>
+          <button onclick="switchTab('register')"><i class="fas fa-user-plus"></i> Реєстрація</button>
+        </div>
+        <div id="loginTab" class="tab active">
+          <h3>Вхід до акаунту</h3>
+          <input type="text" id="loginUsername" placeholder="👤 Ім’я користувача">
+          <input type="password" id="loginPassword" placeholder="🔑 Пароль">
+          <button onclick="login()">Увійти</button>
+        </div>
+        <div id="registerTab" class="tab">
+          <h3>Створити акаунт</h3>
+          <input type="text" id="registerUsername" placeholder="👤 Ім’я користувача">
+          <input type="password" id="registerPassword" placeholder="🔑 Пароль">
+          <button onclick="register()">Зареєструватися</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основна частина після входу -->
+    <div id="appSection" style="display:none;">
+      <div class="welcome-bar">
+        <p>👋 Вітаю, <span id="currentUser"></span>! <button onclick="logout()">🚪 Вийти</button></p>
+      </div>
+
+      <form id="filmForm">
+        <label>🎞️ Назва фільму</label>
+        <input type="text" id="title" required />
+
+        <label>🎭 Жанр</label>
+        <input type="text" id="genre" required />
+
+        <label>📅 Рік</label>
+        <input type="number" id="year" required />
+
+        <label>⭐ Рейтинг (1–10)</label>
+        <input type="number" id="rating" min="1" max="10" step="0.1" required />
+
+        <label>📝 Опис</label>
+        <textarea id="description" placeholder="Короткий опис сюжету, акторів..."></textarea>
+
+        <button type="submit">💾 Зберегти</button>
+      </form>
+
+      <input type="text" id="search" placeholder="🔍 Пошук за назвою..." oninput="renderFilms()" />
+      <div class="film-grid" id="filmGrid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

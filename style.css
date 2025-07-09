@@ -1,0 +1,338 @@
+/* === ГЛОБАЛЬНІ СТИЛІ === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #2e2e2e, #1e1e1e);
+  margin: 0;
+  padding: 1rem;
+  color: #f3f4f6;
+  font-size: 0.95rem;
+}
+
+body.light {
+  background: #f5f5f5;
+  color: #222;
+}
+
+body.light .container {
+  background: #ffffff;
+  color: #222;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  background: #2a2a2a;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* === ЗАГОЛОВКИ === */
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+body.light h1,
+body.light h2 {
+  color: #111;
+}
+
+/* === ФОРМА === */
+form {
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+body.light form {
+  background: #f0f0f0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+body.light label {
+  color: #333;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #333;
+  color: #fefefe;
+}
+
+body.light form input,
+body.light form textarea,
+body.light form select {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+form textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+button {
+  background: linear-gradient(to right, #8b5cf6, #6366f1);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #7c3aed, #4f46e5);
+}
+
+/* === СІТКА ФІЛЬМІВ === */
+.film-grid {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .film-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .film-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .film-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .film-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* === КАРТКА ФІЛЬМУ === */
+.film-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.film-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(17, 36, 202, 0.5);
+}
+
+.film-info {
+  padding: 0.7rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.film-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #fff;
+  word-break: break-word;
+}
+
+.film-meta {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  margin: 0.2rem 0;
+  word-break: break-word;
+}
+
+.film-description {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  color: #d1d5db;
+  background-color: #2d2d2d;
+  border-left: 3px solid #373897;
+  border-radius: 4px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* === РЕЙТИНГ === */
+.rating {
+  font-size: 1rem;
+  color: gold;
+  margin-top: 0.5rem;
+}
+
+/* === ПОШУК === */
+#search {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+}
+
+body.light #search {
+  background: #fff;
+  color: #000;
+  border-color: #ccc;
+}
+
+/* === КНОПКА ПЕРЕМИКАННЯ ТЕМИ === */
+button.theme-toggle {
+  margin-bottom: 1rem;
+  background: #444;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+body.light button.theme-toggle {
+  background: #b9b9b9;
+  color: #333;
+}
+
+.auth-button {
+  background: #373897;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* === МОДАЛЬНЕ ВІКНО === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: #2a2a2a;
+  margin: 5% auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  color: #fff;
+}
+
+.modal-content input {
+  width: 100%;
+  margin: 0.4rem 0;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+  background: #444;
+  color: #fff;
+}
+
+.modal-content button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* === Закрити === */
+.modal-content .close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+}
+
+/* === КНОПКИ ТАБІВ === */
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.tab-buttons button {
+  flex: 1;
+  background: #6366f1;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tab-buttons button:hover {
+  background: #4f46e5;
+}
+
+/* === Вкладки === */
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}

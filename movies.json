@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "The Matrix",
+        "year": 1999,
+        "genre": "Sci-Fi",
+        "director": "The Wachowskis"
+    },
+    {
+        "id": 2,
+        "title": "Inception",
+        "year": 2010,
+        "genre": "Sci-Fi",
+        "director": "Christopher Nolan"
+    }
+]
